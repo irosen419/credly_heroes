@@ -45,6 +45,9 @@ gem "bootsnap", require: false
 # RestClient
 gem "rest-client"
 
+# Figaro for ENV variable
+gem 'figaro'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
