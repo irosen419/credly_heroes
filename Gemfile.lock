@@ -240,6 +240,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  digest
   figaro
   importmap-rails
   jbuilder

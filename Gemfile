@@ -48,6 +48,8 @@ gem "rest-client"
 # Figaro for ENV variable
 gem 'figaro'
 
+#For MD% Hashing
+gem 'digest'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
