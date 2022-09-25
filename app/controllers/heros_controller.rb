@@ -11,7 +11,8 @@ class HerosController < ApplicationController
     hash = Digest::MD5.hexdigest (timestamp + ENV["PRIVATE_KEY"] + ENV["PUBLIC_KEY"])
     str = "ts=#{timestamp}&apikey=#{ENV["PUBLIC_KEY"]}&hash=#{hash}"
     response = RestClient.get(baseUrl + str)
-    render json: response
+    jsonData = JSON.parse(response)["data"]
+    render json: jsonData
   end
 
   # def get_badges
