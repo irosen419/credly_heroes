@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+
+div.hero-container {
+  display: grid;
+  grid-template-columns: 200px 200px 100px;
+  grid-template-rows: 200px;
+  gap: 10px;
+
+  div.hero {
+    border: 1px solid black;
+    position: relative;
+
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 200px;
+      object-fit: fill;
+    }
+
+    h3 {
+      position: absolute;
+      bottom: 0;
+      left: 5px;
+
+      background-color: azure;
+      opacity: .8;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="hero-container">
+  <%@heroes.each do |h|%>
+    <div class="hero">
+      <img src=<%=h["thumbnail"]["path"] + '.jpg'%> alt=<%=h["name"]%> />
+      <h3><%=h["name"]%></h3>
+    </div>
+  <% end %>
+</div>

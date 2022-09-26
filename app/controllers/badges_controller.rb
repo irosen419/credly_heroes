@@ -10,8 +10,8 @@ class BadgesController < ApplicationController
   def get_badge_templates
     url = $baseUrl + "/badge_templates"
     response = RestClient.get(url, $headers)
-    jsonData = JSON.parse(response)["data"]
-    render json: jsonData
+    @jsonData = JSON.parse(response)["data"]
+    render json: @jsonData
   end
 
   def issue_badge(email = 'testEmail@123.com', first_name, last_name, badge_template_id, issued_at = Time.new)
@@ -25,5 +25,6 @@ class BadgesController < ApplicationController
     }
     response = RestClient.post(url, body, $headers)
     jsonData = JSON.parse(response)
+    render json: jsonData
   end
 end
