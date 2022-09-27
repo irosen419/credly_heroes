@@ -16,10 +16,8 @@
 
 
 div.hero-container {
-  display: grid;
-  grid-template-columns: 200px 200px 100px;
-  grid-template-rows: 200px;
-  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
 
   div.hero {
     border: 1px solid black;
@@ -27,9 +25,11 @@ div.hero-container {
 
     width: 200px;
     height: 200px;
+    margin: 5px;
 
     img {
       width: 200px;
+      max-height: 200px;
       object-fit: fill;
     }
 

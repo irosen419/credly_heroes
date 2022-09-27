@@ -1,8 +1,12 @@
+<%=form_with url: "/find_hero", local: true, method: :post do %>
+  <%= label_tag :hero %>
+  <%= text_field_tag :hero%>
+<%end%>
 <div class="hero-container">
   <%@heroes.each do |h|%>
     <div class="hero">
       <img src=<%=h["thumbnail"]["path"] + '.jpg'%> alt=<%=h["name"]%> />
-      <h3><%=h["name"]%></h3>
+      <h3><%=link_to h["name"], hero_path(h["id"]) %></h3>
     </div>
   <% end %>
 </div>
