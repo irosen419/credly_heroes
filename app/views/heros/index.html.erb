@@ -6,8 +6,7 @@
   <%@heroes.each do |h|%>
     <div class="hero">
       <img src=<%=h["thumbnail"]["path"] + '.jpg'%> alt=<%=h["name"]%> />
-      <%obj = {"hero_email": "#{h["id"]}@gmail.com", "id": h["id"], **h}%>
-      <h3><%=link_to h["name"], hero_path(obj) %></h3>
+      <h3><%=link_to h["name"], hero_path(h["id"]) %></h3>
     </div>
   <% end %>
 </div>

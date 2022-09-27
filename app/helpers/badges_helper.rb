@@ -24,8 +24,19 @@ module BadgesHelper
       "badge_template_id": badge_template_id,
       "issued_at": issued_at,
     }
-    response = RestClient.post(url, body, $headers)
-    JSON.parse(response)
+    response = RestClient::Request.new({
+        method: :post,
+        url: url,
+        payload: body,
+        headers: $headers
+      }).execute do |response, request, result|
+      case response.code
+      when 400
+        [ :error, JSON.parse(response.to_str) ]
+      when 200
+        [ :success, JSON.parse(response.to_str) ]
+      end
+    end
   end
 
   def get_badges(email)

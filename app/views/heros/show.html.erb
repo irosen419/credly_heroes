@@ -1,13 +1,21 @@
 <h1><%=@hero["name"]%></h1>
-<img src=<%=@hero["thumbnail"]["path"] + '.jpg'%> alt=<%=@hero["name"]%> />
-<h2>My Badges</h2>
+<img class="hero-show" src=<%=@hero["thumbnail"]["path"] + '.jpg'%> alt=<%=@hero["name"]%> />
+<% if !@badges.empty? %>
+  <h2>My Badges</h2> 
+<% end %>
+<div class="badges">
 <% @badges.each do |b|%>
-
+  <h2><%= b["badge_template"]["name"] if b %></h2>
 <% end %>
+</div>
 <h2>Issue Badges</h2>
+<div class="badges">
 <% @templates.each do |t|%>
-  <img class="badge-image" src=<%=t["image_url"]%> alt=<%=t["description"]%>/>
-  <% obj = {"hero_name": @hero["name"], "hero_id": @hero["id"], **t}%>
-  <%= button_to "ISSUE #{t["desc"]} BADGE", issue_badge_path(obj)%>
+  <div class="badge">
+    <img class="badge-image" src=<%=t["image_url"]%> alt=<%=t["description"]%>/>
+    <% obj = {"hero_name": @hero["name"], "hero_id": @hero["id"], **t}%>
+    <%= button_to "ISSUE #{t["desc"]} BADGE", issue_badge_path(obj)%>
+  </div>
 <% end %>
+</div>
 <%=link_to "HOME", heros_path() %>

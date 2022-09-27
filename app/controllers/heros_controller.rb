@@ -10,7 +10,7 @@ class HerosController < ApplicationController
   def show
     @hero = get_hero(params[:id])
     @templates = get_templates()
-    @badges = get_badges(params[:hero_email])
+    @badges = get_badges("#{params[:id]}@gmail.com")["data"]
   end
 
   def find_hero
