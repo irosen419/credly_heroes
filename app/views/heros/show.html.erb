@@ -1,0 +1,13 @@
+<h1><%=@hero["name"]%></h1>
+<img src=<%=@hero["thumbnail"]["path"] + '.jpg'%> alt=<%=@hero["name"]%> />
+<h2>My Badges</h2>
+<% @badges.each do |b|%>
+
+<% end %>
+<h2>Issue Badges</h2>
+<% @templates.each do |t|%>
+  <img class="badge-image" src=<%=t["image_url"]%> alt=<%=t["description"]%>/>
+  <% obj = {"hero_name": @hero["name"], "hero_id": @hero["id"], **t}%>
+  <%= button_to "ISSUE #{t["desc"]} BADGE", issue_badge_path(obj)%>
+<% end %>
+<%=link_to "HOME", heros_path() %>
